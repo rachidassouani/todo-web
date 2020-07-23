@@ -8,6 +8,14 @@ export class HardCodedAuthenticationService {
   constructor() { }
 
   authenticate(username, password) {
-    return (username && password);
+    if (username && password) {
+      sessionStorage.setItem('authenticatedUser', username);
+      return true;
+    }
+    return false;
+  }
+
+  isUserLoggedIn() {
+    return sessionStorage.getItem('authenticatedUser') !== null;
   }
 }
