@@ -10,6 +10,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { ListTodosComponent } from './components/list-todos/list-todos.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ErrorComponent,
     ListTodosComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LogoutComponent
 
   ],
   imports: [
