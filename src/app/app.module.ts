@@ -9,6 +9,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ErrorComponent } from './components/error/error.component';
 import { ListTodosComponent } from './components/list-todos/list-todos.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { HeaderComponent } from './components/header/header.component';
     WelcomeComponent,
     ErrorComponent,
     ListTodosComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
+
   ],
   imports: [
     BrowserModule,
