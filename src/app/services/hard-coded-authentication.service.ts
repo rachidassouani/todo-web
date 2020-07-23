@@ -18,4 +18,10 @@ export class HardCodedAuthenticationService {
   isUserLoggedIn() {
     return sessionStorage.getItem('authenticatedUser') !== null;
   }
+
+  logout() {
+    if (this.isUserLoggedIn()) {
+      sessionStorage.removeItem('authenticatedUser');
+    }
+  }
 }
