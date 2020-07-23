@@ -10,7 +10,7 @@ export class LoginComponent implements OnInit {
   username: string = 'Rachid';
   password: string;
   errorMessage: string = 'Error Credentiels';
-  invalidLogin: boolean = false;
+  validLogin: boolean = true;
 
   constructor(private router: Router,
               public hardAuth: HardCodedAuthenticationService) { }
@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
     // } else {
     //   this.invalidLogin = true;
     // }
-    this.invalidLogin = !this.hardAuth.authenticate(this.username, this.password);
-    if (!this.invalidLogin) {
+    this.validLogin = this.hardAuth.authenticate(this.username, this.password);
+    if (this.validLogin) {
       // redirect to welcome page
       this.router.navigate(['welcome', this.username]);
     }
