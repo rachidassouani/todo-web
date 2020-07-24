@@ -1,4 +1,7 @@
 <h3>My Todos</h3>
+<div *ngIf="messageForDeletedsuccessfully" class="alert alert-success">
+  {{messageForDeletedsuccessfully}}
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -12,6 +15,13 @@
       <td>{{ todo.description }}</td>
       <td>{{ todo.targetDate | date }}</td>
       <td>{{ todo.completed }}</td>
+      <td>
+        <button
+            (click)="deleteTodo(todo.id, todo.description)"
+            class="btn btn-warning"
+            >Delete
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

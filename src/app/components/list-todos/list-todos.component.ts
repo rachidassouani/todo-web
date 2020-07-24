@@ -20,6 +20,7 @@ export class Todo {
 export class ListTodosComponent implements OnInit {
 
   todos: Todo[];
+  messageForDeletedsuccessfully: string;
 
   constructor(private todoDataService: TodoDataService) { }
 
@@ -32,10 +33,23 @@ export class ListTodosComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.findAllTodosByUsername();
+  }
+
+  findAllTodosByUsername() {
     this.todoDataService.retrieveAllTodosByUsername('rachid').subscribe(
       data => {
-        console.log(data);
         this.todos = data;
+      }
+    );
+  }
+  deleteTodo(id, description) {
+    this.todoDataService.deleteTodoById('rachid', id).subscribe(
+      () => {
+        this.messageForDeletedsuccessfully = `Todo with description: ${description}  Was Deleted Successfully`;
+        this.findAllTodosByUsername();
+      }, error => {
+        console.log(error);
       }
     );
   }
