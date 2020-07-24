@@ -1,5 +1,8 @@
 <p>welcome {{ username }} to our awesome app!</p>
 <div>
   you can manage your todos <a routerLink="/todos">here</a>
+  <button (click)="onGetWelcomeMessageWithPathVariable()">Get Welcome Message</button>
 </div>
-
+<div *ngIf="welcomeMessageFromService">
+  your customized welcome message : <span>{{ welcomeMessageFromService }}</span>
+</div>
