@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from './../../services/todo-data.service';
+import { Router } from '@angular/router';
 
 export class Todo {
 
@@ -22,7 +23,9 @@ export class ListTodosComponent implements OnInit {
   todos: Todo[];
   messageForDeletedsuccessfully: string;
 
-  constructor(private todoDataService: TodoDataService) { }
+  constructor(
+    private todoDataService: TodoDataService,
+    private router: Router) { }
 
   // todo = {id: 1, description: 'hi there'};
   // todos: Todo[] = [
@@ -52,5 +55,11 @@ export class ListTodosComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  updateTodo(id) {
+    console.log(id);
+
+    this.router.navigate(['todos', id]);
   }
 }

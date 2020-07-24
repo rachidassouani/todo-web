@@ -8,6 +8,8 @@
       <th>Description</th>
       <th>Target Date</th>
       <th>is Completed</th>
+      <th>Delete</th>
+      <th>Update</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +22,12 @@
             (click)="deleteTodo(todo.id, todo.description)"
             class="btn btn-warning"
             >Delete
+        </button>
+      </td>
+      <td>
+        <button
+            (click)="updateTodo(todo.id)"
+            class="btn btn-primary">Update
         </button>
       </td>
     </tr>
