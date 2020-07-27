@@ -60,4 +60,7 @@ export class ListTodosComponent implements OnInit {
   updateTodo(id) {
     this.router.navigate(['todos', id]);
   }
+  onAddTodo() {
+    this.router.navigate(['todos', -1]);
+  }
 }

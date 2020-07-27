@@ -9,7 +9,7 @@ export class TodoDataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  retrieveAllTodosByUsername(username) {
+  retrieveAllTodosByUsername(username: string) {
     return this.httpClient.get<Todo[]>(`http://localhost:8080/users/${username}/todos`);
   }
 
@@ -20,7 +20,12 @@ export class TodoDataService {
   findTodoById(username, todoId) {
     return this.httpClient.get<Todo>(`http://localhost:8080/users/${username}/todos/${todoId}`);
   }
+
   updateTodo(username: string, todoId: number, todo: Todo) {
     return this.httpClient.put(`http://localhost:8080/users/${username}/todos/${todoId}`, todo);
+  }
+
+  createTodo(username: string, todo: Todo) {
+    return this.httpClient.post(`http://localhost:8080/users/${username}/todos`, todo);
   }
 }
